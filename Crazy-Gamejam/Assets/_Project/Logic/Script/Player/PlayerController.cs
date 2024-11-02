@@ -23,7 +23,6 @@ namespace Main.Gameplay.Player
         [Header("References")]
         [Space(6)]
         [SerializeField] private GameObject _bodyUnitPrefab;
-        [SerializeField] private Rigidbody _rb;
 
         private float _delayPerUnit;
 
@@ -40,12 +39,12 @@ namespace Main.Gameplay.Player
             for (int i = 0; i < _beginSize - 1; i++) AddBodyUnit();
         }
 
-        private void Update()
+        private void Update() // Move to a Coroutine.
         {
             HandleRotation();
             Movement();
 
-            if(Input.GetButtonDown("Jump")) AddBodyUnit();
+            if(Input.GetButtonDown("Jump")) AddBodyUnit(); // Replace to New Input System.
         }
 
         private void Movement()
@@ -88,7 +87,5 @@ namespace Main.Gameplay.Player
             _newUnit.SetParent(transform);
             _bodyUnits.Add(_newUnit);
         }
-
-
     }
 }

@@ -228,7 +228,7 @@ GameObject:
   - component: {fileID: 4960528909915113241}
   - component: {fileID: 2823995254239942937}
   - component: {fileID: 8333629594297066797}
-  - component: {fileID: 1247675461331220060}
+  - component: {fileID: 9221619703661813688}
   - component: {fileID: 6208011308048454047}
   - component: {fileID: 7875408285256055189}
   - component: {fileID: 3913033750181285209}
@@ -295,24 +295,26 @@ MonoBehaviour:
   _aimPointVisual: {fileID: 8836990628218380292}
   _closerUnit: {fileID: 0}
   _unitsAround: []
---- !u!114 &1247675461331220060
+--- !u!114 &9221619703661813688
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5692140049265733832}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceec3a119a9e5ac49a456cb177b49ea2, type: 3}
+  m_Script: {fileID: 11500000, guid: 0e19a051a45d75e4282eba6da8f7ec2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 0}
-  firePoint: {fileID: 0}
-  bulletSpeed: 10
-  fireRate: 1
-  cooldown:
-    _cooldownTime: 0
+  _maxHealth: 15
+  _currentHealth: 0
+  OnTakeDamage:
+    m_PersistentCalls:
+      m_Calls: []
+  OnDie:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!54 &6208011308048454047
 Rigidbody:
   m_ObjectHideFlags: 0

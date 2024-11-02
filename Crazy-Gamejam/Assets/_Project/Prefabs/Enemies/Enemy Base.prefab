@@ -289,10 +289,12 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   _aimSpeed: 7
+  _bulletSpeed: 5
   _damagePerTick: 2
   _damageTickCooldown:
     _cooldownTime: 1
   _aimPointVisual: {fileID: 8836990628218380292}
+  _bulletPrefab: {fileID: 8078501766731380133, guid: bbfde548d072b574293f88a461abc66f, type: 3}
   _closerUnit: {fileID: 0}
   _unitsAround: []
 --- !u!114 &9221619703661813688

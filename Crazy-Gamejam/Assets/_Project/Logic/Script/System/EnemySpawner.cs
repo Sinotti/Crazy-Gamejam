@@ -6,18 +6,16 @@ namespace Main.GameSystems
     {
         [Header("Spawner Settings")]
         [Space(6)]
-        [SerializeField] private EnemyPool enemyPool; 
-        [SerializeField] private float spawnTime = 2f;
-        [SerializeField] private int maxEnemies = 10;
+        [SerializeField] private EnemyPooling _enemyPool;
+        [SerializeField] private float _spawnTime = 2f;
+        [SerializeField] private int _maxEnemies = 10;
 
-        private float _nextSpawnTime = 0f; 
+        private float _nextSpawnTime = 0f;
         private int _currentEnemyCount = 0;
-
-        private GameObject _enemy;
 
         private void Update()
         {
-            if (Time.time >= _nextSpawnTime && _currentEnemyCount < maxEnemies)
+            if (Time.time >= _nextSpawnTime && _currentEnemyCount < _maxEnemies)
             {
                 SpawnEnemy();
             }
@@ -25,14 +23,14 @@ namespace Main.GameSystems
 
         private void SpawnEnemy()
         {
-            _enemy = enemyPool.GetEnemy();
+            // Aqui você passa a posição do spawner para o método GetEnemy
+            Vector3 spawnPosition = transform.position;
+            GameObject enemy = _enemyPool.GetEnemy(spawnPosition);
 
-            if (_enemy != null)
+            if (enemy != null)
             {
-                _enemy.transform.position = transform.position;
-                _currentEnemyCount++; 
-
-                _nextSpawnTime = Time.time + spawnTime;
+                _currentEnemyCount++;
+                _nextSpawnTime = Time.time + _spawnTime;
             }
         }
 

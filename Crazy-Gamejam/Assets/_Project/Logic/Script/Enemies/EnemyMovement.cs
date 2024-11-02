@@ -3,7 +3,7 @@ using UnityEngine.AI;
 
 namespace Main.Gameplay.Enemies
 {
-    public class EnemyMovement : MonoBehaviour
+    public class EnemyMovement : MonoBehaviour, IDestroyable
     {
         [Header("Movement Parameters")]
         [Space(6)]
@@ -25,6 +25,11 @@ namespace Main.Gameplay.Enemies
         private void Update() // Move to a Coroutine
         {
             MoveTowardsCloserUnit();
+        }
+
+        public void Destroyed(Transform obs)
+        {
+            Destroy(gameObject);
         }
 
         private void MoveTowardsCloserUnit()

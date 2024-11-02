@@ -1,4 +1,5 @@
 using UnityEngine;
+using Main.Utilities;
 
 namespace Main.Gameplay.Enemies
 {
@@ -13,10 +14,12 @@ namespace Main.Gameplay.Enemies
         [Header("Shoot Parameters")]
         [Space(6)]
         [SerializeField] private float _aimSpeed = 7;
+        [SerializeField] private int _damagePerTick = 2;
+        [SerializeField] private Cooldown _damageTickCooldown;
 
         [Header("References")]
         [Space(6)]
-        [SerializeField] private Transform _aimPoint;
+        [SerializeField] private Transform _aimPointVisual;
 
         [SerializeField] private Transform _closerUnit;
         [SerializeField] private Collider[] _unitsAround;
@@ -24,16 +27,22 @@ namespace Main.Gameplay.Enemies
         private float _sqrTarget;
         private float _currentCloserSqr;
 
-        private Quaternion _lookRotation; 
+        private Quaternion _lookRotation;
         private Vector3 _target;
-        private Vector3 direction;
+        private Vector3 _direction;
+
 
         public Transform CloserUnit { get => _closerUnit; set => _closerUnit = value; }
 
         private void Update()
         {
             AroundDetection();
-            if(CloserUnit != null) Debug.DrawLine(_aimPoint.position, CloserUnit.transform.position, Color.yellow);
+
+            if (CloserUnit != null)
+            {
+                Debug.DrawLine(_aimPointVisual.position, CloserUnit.position, Color.yellow);
+                Shoot();
+            }
         }
 
         public void AroundDetection()
@@ -60,17 +69,22 @@ namespace Main.Gameplay.Enemies
         {
             if (CloserUnit == null) return;
 
-            direction = CloserUnit.position - transform.position;
+            _direction = CloserUnit.position - transform.position;
 
-            _lookRotation = Quaternion.LookRotation(direction);
-            _aimPoint.rotation = Quaternion.Slerp(_aimPoint.rotation, _lookRotation, Time.deltaTime * _aimSpeed);
+            _lookRotation = Quaternion.LookRotation(_direction);
+            _aimPointVisual.rotation = Quaternion.Slerp(_aimPointVisual.rotation, _lookRotation, Time.deltaTime * _aimSpeed);
         }
 
         private void Shoot()
         {
-            if (CloserUnit == null) return;
-
-            //Shoot Logic
+            if (CloserUnit != null && !_damageTickCooldown.IsCoolingDown)
+            {
+                if (CloserUnit.TryGetComponent(out Health health))
+                {
+                    health.TakeDamage(_damagePerTick);
+                    _damageTickCooldown.StartCoolDown();
+                }
+            }
         }
 
         private void OnDrawGizmos()

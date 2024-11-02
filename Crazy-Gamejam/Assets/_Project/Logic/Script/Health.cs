@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.Events;
-using Main.Gameplay.Player; // Certifique-se de que este namespace seja correto para acessar PlayerController
 
 public class Health : MonoBehaviour, IDamageable
 {
@@ -14,21 +13,13 @@ public class Health : MonoBehaviour, IDamageable
     [SerializeField] private UnityEvent OnTakeDamage;
     [SerializeField] private UnityEvent OnDie;
 
-    // Referência ao PlayerController
-    private PlayerController _playerController;
+    private IDestroyable _destroyableUnit;
 
     private void Start()
     {
         _currentHealth = _maxHealth;
 
-        // Busca automaticamente o PlayerController no objeto pai (assumindo que o objeto Player é o pai das unidades)
-        _playerController = GetComponentInParent<PlayerController>();
-
-        // Verifica se a referência foi encontrada
-        if (_playerController == null)
-        {
-            Debug.LogError("PlayerController não encontrado no objeto pai. Certifique-se de que este script está em uma unidade do player.");
-        }
+        _destroyableUnit = GetComponentInParent<IDestroyable>();
     }
 
     public void TakeDamage(int amount)
@@ -49,13 +40,8 @@ public class Health : MonoBehaviour, IDamageable
     {
         OnDie?.Invoke();
 
-        // Remove a unidade do PlayerController antes de destruí-la
-        if (_playerController != null)
-        {
-            _playerController.RemoveBodyUnit(transform);
-        }
+        _destroyableUnit?.Destroyed(transform);
 
-        // Destroi a unidade
         Destroy(gameObject);
     }
 }

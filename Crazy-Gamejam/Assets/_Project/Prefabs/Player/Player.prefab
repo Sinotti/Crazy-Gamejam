@@ -81,7 +81,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _movementSpeed: 3
   _rotationSpeed: 100
-  _UnitsDistance: 0.25
+  _UnitsDistance: 0.5
   _addUnitOffset: 0.5
   _beginSize: 1
   _bodyUnits:

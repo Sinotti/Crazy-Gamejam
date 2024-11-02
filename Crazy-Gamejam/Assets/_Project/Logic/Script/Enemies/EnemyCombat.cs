@@ -28,15 +28,12 @@ namespace Main.Gameplay.Enemies
         private Vector3 _target;
         private Vector3 direction;
 
-        private void Start()
-        {
-
-        }
+        public Transform CloserUnit { get => _closerUnit; set => _closerUnit = value; }
 
         private void Update()
         {
             AroundDetection();
-            if(_closerUnit != null) Debug.DrawLine(_aimPoint.position, _closerUnit.transform.position, Color.yellow);
+            if(CloserUnit != null) Debug.DrawLine(_aimPoint.position, CloserUnit.transform.position, Color.yellow);
         }
 
         public void AroundDetection()
@@ -52,7 +49,7 @@ namespace Main.Gameplay.Enemies
                 if (_sqrTarget < _currentCloserSqr)
                 {
                     _currentCloserSqr = _sqrTarget;
-                    _closerUnit = currentUnit.transform;
+                    CloserUnit = currentUnit.transform;
                 }
             }
 
@@ -61,12 +58,19 @@ namespace Main.Gameplay.Enemies
 
         public void RotateToCloser()
         {
-            if (_closerUnit == null) return;
+            if (CloserUnit == null) return;
 
-            direction = _closerUnit.position - transform.position;
+            direction = CloserUnit.position - transform.position;
 
             _lookRotation = Quaternion.LookRotation(direction);
             _aimPoint.rotation = Quaternion.Slerp(_aimPoint.rotation, _lookRotation, Time.deltaTime * _aimSpeed);
+        }
+
+        private void Shoot()
+        {
+            if (CloserUnit == null) return;
+
+            //Shoot Logic
         }
 
         private void OnDrawGizmos()

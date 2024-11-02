@@ -83,7 +83,7 @@ MonoBehaviour:
   _rotationSpeed: 100
   _UnitsDistance: 0.25
   _addUnitOffset: 0.5
-  _beginSize: 0
+  _beginSize: 1
   _bodyUnits:
   - {fileID: 809069535343967684}
   _bodyUnitPrefab: {fileID: 3265327678882863530, guid: 044fd310d470a454689b571aebefcb3d, type: 3}

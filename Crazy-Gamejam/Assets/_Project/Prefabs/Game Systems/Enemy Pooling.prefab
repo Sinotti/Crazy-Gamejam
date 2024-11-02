@@ -45,4 +45,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 5692140049265733832, guid: 8fabc64632ad65545bc9fadcff85a9d7, type: 3}
-  poolSize: 10
+  poolSize: 4

@@ -86,7 +86,7 @@ MonoBehaviour:
   _beginSize: 1
   _bodyUnits:
   - {fileID: 809069535343967684}
-  _bodyUnitPrefab: {fileID: 3265327678882863530, guid: 044fd310d470a454689b571aebefcb3d, type: 3}
+  _bodyUnitPrefab: {fileID: 3637882382495656542, guid: 044fd310d470a454689b571aebefcb3d, type: 3}
 --- !u!54 &6553092976303914761
 Rigidbody:
   m_ObjectHideFlags: 0

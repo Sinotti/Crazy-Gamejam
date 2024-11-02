@@ -226,8 +226,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4960528909915113241}
-  - component: {fileID: 8333629594297066797}
   - component: {fileID: 2823995254239942937}
+  - component: {fileID: 8333629594297066797}
+  - component: {fileID: 1247675461331220060}
   - component: {fileID: 6208011308048454047}
   - component: {fileID: 7875408285256055189}
   - component: {fileID: 3913033750181285209}
@@ -254,6 +255,22 @@ Transform:
   - {fileID: 5777224028040488119}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2823995254239942937
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5692140049265733832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: effe4c84a8adaf84280c16af961c5867, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _stopDistance: 2
+  _moveSpeed: 3
+  _enemyCombat: {fileID: 8333629594297066797}
+  _navMeshAgent: {fileID: 3913033750181285209}
 --- !u!114 &8333629594297066797
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -272,25 +289,30 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   _aimSpeed: 7
-  _aimPoint: {fileID: 8836990628218380292}
+  _damagePerTick: 2
+  _damageTickCooldown:
+    _cooldownTime: 1
+  _aimPointVisual: {fileID: 8836990628218380292}
   _closerUnit: {fileID: 0}
   _unitsAround: []
---- !u!114 &2823995254239942937
+--- !u!114 &1247675461331220060
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5692140049265733832}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: effe4c84a8adaf84280c16af961c5867, type: 3}
+  m_Script: {fileID: 11500000, guid: ceec3a119a9e5ac49a456cb177b49ea2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _stopDistance: 2
-  _moveSpeed: 3
-  _enemyCombat: {fileID: 8333629594297066797}
-  _navMeshAgent: {fileID: 3913033750181285209}
+  bulletPrefab: {fileID: 0}
+  firePoint: {fileID: 0}
+  bulletSpeed: 10
+  fireRate: 1
+  cooldown:
+    _cooldownTime: 0
 --- !u!54 &6208011308048454047
 Rigidbody:
   m_ObjectHideFlags: 0

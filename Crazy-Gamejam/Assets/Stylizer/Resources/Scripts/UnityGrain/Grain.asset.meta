@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 82310dfd7a370d54c978d7127017f6d1
+timeCreated: 1497863719
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 93677
+  packageName: Stylizer - Basic
+  packageVersion: 1.2
+  assetPath: Assets/Stylizer/Resources/Scripts/UnityGrain/Grain.asset
+  uploadId: 396823

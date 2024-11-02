@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 9585134c6835146d49a2ec6b8f039e75
+timeCreated: 1474369995
+licenseType: Store
+ShaderImporter:
+  defaultTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 93677
+  packageName: Stylizer - Basic
+  packageVersion: 1.2
+  assetPath: Assets/Stylizer/Resources/Shaders/Diffuse Dithered - Soft Lights.shader
+  uploadId: 396823

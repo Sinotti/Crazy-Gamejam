@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: f6a1772a7b1fd45ff9b0101ce374d778
+timeCreated: 1477137540
+licenseType: Store
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 93677
+  packageName: Stylizer - Basic
+  packageVersion: 1.2
+  assetPath: Assets/Stylizer/Editor/DiffuseShaderBaseEditor.cs
+  uploadId: 396823

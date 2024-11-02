@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 2e426b23e8eeb204788b549f725eaaad
+timeCreated: 1496404599
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 93677
+  packageName: Stylizer - Basic
+  packageVersion: 1.2
+  assetPath: Assets/Stylizer/Resources/ApocalypseScene/Prefabs/EnergyLine002.prefab
+  uploadId: 396823

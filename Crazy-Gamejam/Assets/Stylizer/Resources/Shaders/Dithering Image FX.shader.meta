@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 0e4c0c6d48b7240d8b59f441b94c2b0e
+timeCreated: 1455543372
+licenseType: Store
+ShaderImporter:
+  defaultTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 93677
+  packageName: Stylizer - Basic
+  packageVersion: 1.2
+  assetPath: Assets/Stylizer/Resources/Shaders/Dithering Image FX.shader
+  uploadId: 396823

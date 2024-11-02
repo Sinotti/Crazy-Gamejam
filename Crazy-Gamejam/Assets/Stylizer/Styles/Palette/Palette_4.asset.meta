@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 77c49974697511d4c9bd68134fe7b5c1
+timeCreated: 1497864066
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 93677
+  packageName: Stylizer - Basic
+  packageVersion: 1.2
+  assetPath: Assets/Stylizer/Styles/Palette/Palette_4.asset
+  uploadId: 396823

@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 3c941b5c2b6b444489a6dad17318c740
+timeCreated: 1464271015
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 93677
+  packageName: Stylizer - Basic
+  packageVersion: 1.2
+  assetPath: Assets/Stylizer/Resources/ApocalypseScene/Materials/Vehicle_Car_Small.mat
+  uploadId: 396823

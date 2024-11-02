@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: 2eeb8b5f72455466fa661846908628fe
+timeCreated: 1477133390
+licenseType: Store
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 93677
+  packageName: Stylizer - Basic
+  packageVersion: 1.2
+  assetPath: Assets/Stylizer/Editor/DiffuseDitheredEditor.cs
+  uploadId: 396823

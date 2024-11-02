@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 38b68ca7ab0804276a516e9561009017
+timeCreated: 1474369995
+licenseType: Store
+ShaderImporter:
+  defaultTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 93677
+  packageName: Stylizer - Basic
+  packageVersion: 1.2
+  assetPath: Assets/Stylizer/Resources/Shaders/Standard Dithered Transparent - Soft
+    Lights.shader
+  uploadId: 396823

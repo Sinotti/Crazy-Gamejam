@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 1193bca25d45045b891d643f5de2d52b
+timeCreated: 1474369995
+licenseType: Store
+ShaderImporter:
+  defaultTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 93677
+  packageName: Stylizer - Basic
+  packageVersion: 1.2
+  assetPath: Assets/Stylizer/Resources/Shaders/Standard Dithered - Simple Lights.shader
+  uploadId: 396823

@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 2b63037831bb3834dbe7f37515cc9ec8
+timeCreated: 1497862662
+licenseType: Store
+ShaderImporter:
+  defaultTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 93677
+  packageName: Stylizer - Basic
+  packageVersion: 1.2
+  assetPath: Assets/Stylizer/Resources/Scripts/UnityGrain/Shaders/NoiseAndGrain_Grain.shader
+  uploadId: 396823

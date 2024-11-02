@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: a5e1c8f35889879478f0d1a0bbdc1cb7
+timeCreated: 1497862710
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: -1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 93677
+  packageName: Stylizer - Basic
+  packageVersion: 1.2
+  assetPath: Assets/Stylizer/Resources/Scripts/UnityGrain/Shaders/Build materials/gm.mat
+  uploadId: 396823

@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: fb3512f76aed04aa19ae00a9a47478fe
+timeCreated: 1474638693
+licenseType: Store
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 93677
+  packageName: Stylizer - Basic
+  packageVersion: 1.2
+  assetPath: Assets/Stylizer/Editor/BeffioDitherEditorUtilities.cs
+  uploadId: 396823

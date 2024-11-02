@@ -35,8 +35,11 @@ MonoBehaviour:
     - Autodesk.Fbx
     - Autodesk.Fbx.BuildTestAssets
     - Cinemachine
+    - Lofelt.NiceVibrations
+    - Lofelt.NiceVibrations.Demo
     - MK.Toon
     - MK.Toon.URP
+    - MoreMountains.Tools
     showAdvancedSettings: 0
   addMgrToSceneAutomatically: 0
   autoUpdateReferences: 1

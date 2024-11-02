@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: a80728087ef274c5eb9547c8ad951b02
+timeCreated: 1455543369
+licenseType: Store
+ShaderImporter:
+  defaultTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 93677
+  packageName: Stylizer - Basic
+  packageVersion: 1.2
+  assetPath: Assets/Stylizer/Resources/Shaders/Dithering Base.cginc
+  uploadId: 396823

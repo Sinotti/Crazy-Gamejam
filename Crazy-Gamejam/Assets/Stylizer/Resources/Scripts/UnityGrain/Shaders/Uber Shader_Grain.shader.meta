@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: b936043c15241a64683e78e0cf517ab2
+timeCreated: 1497862682
+licenseType: Store
+ShaderImporter:
+  defaultTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 93677
+  packageName: Stylizer - Basic
+  packageVersion: 1.2
+  assetPath: Assets/Stylizer/Resources/Scripts/UnityGrain/Shaders/Uber Shader_Grain.shader
+  uploadId: 396823

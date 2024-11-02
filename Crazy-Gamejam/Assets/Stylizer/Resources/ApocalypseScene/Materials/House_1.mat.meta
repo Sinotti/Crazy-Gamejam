@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: f14a8c48efd4d7d49b86909d977c81f8
+timeCreated: 1496135275
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 93677
+  packageName: Stylizer - Basic
+  packageVersion: 1.2
+  assetPath: Assets/Stylizer/Resources/ApocalypseScene/Materials/House_1.mat
+  uploadId: 396823

@@ -35,6 +35,7 @@ MonoBehaviour:
     - Autodesk.Fbx
     - Autodesk.Fbx.BuildTestAssets
     - Cinemachine
+    - Lattice.Runtime
     - Lofelt.NiceVibrations
     - Lofelt.NiceVibrations.Demo
     - MK.Toon

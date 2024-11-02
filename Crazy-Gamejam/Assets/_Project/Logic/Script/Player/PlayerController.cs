@@ -75,7 +75,7 @@ namespace Main.Gameplay.Player
 
         private void HandleRotation()
         {
-            if (Input.GetAxis("Horizontal") != 0) _bodyUnits[0].Rotate(Vector3.up * _rotationSpeed * Time.deltaTime * Input.GetAxis("Horizontal"));
+            if (Input.GetAxis("Horizontal") != 0 && Input.GetAxis("Vertical") != 0) _bodyUnits[0].Rotate(Vector3.up * _rotationSpeed * Time.deltaTime * Input.GetAxis("Horizontal"));
         }
 
         public void AddBodyUnit()

@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 3314019174463627267}
   - component: {fileID: 6168117593996959872}
   - component: {fileID: 6565211274432596253}
-  m_Layer: 0
-  m_Name: BodyUnit
+  m_Layer: 6
+  m_Name: Body Unit Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

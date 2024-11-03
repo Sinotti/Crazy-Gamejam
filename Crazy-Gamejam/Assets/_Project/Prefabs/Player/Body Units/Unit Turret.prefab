@@ -235,15 +235,15 @@ PrefabInstance:
       objectReference: {fileID: 5903224945972973702}
     - target: {fileID: 1178628067351226862, guid: 044fd310d470a454689b571aebefcb3d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.061607
+      value: -5.429021
       objectReference: {fileID: 0}
     - target: {fileID: 1178628067351226862, guid: 044fd310d470a454689b571aebefcb3d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.437
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1178628067351226862, guid: 044fd310d470a454689b571aebefcb3d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2.7121937
+      value: 4.950552
       objectReference: {fileID: 0}
     - target: {fileID: 1178628067351226862, guid: 044fd310d470a454689b571aebefcb3d, type: 3}
       propertyPath: m_LocalRotation.w
@@ -312,7 +312,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1105531169783981204}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c72b1e0f5aa01ba4c801f5f494416625, type: 3}
   m_Name: 
@@ -324,7 +324,7 @@ MonoBehaviour:
     m_Bits: 128
   _aimSpeed: 7
   _bulletSpeed: 5
-  _damagePerTick: 2
+  _damagePerTick: 1
   _damageTickCooldown:
     _cooldownTime: 1
   _aimPointVisual: {fileID: 5903224945972973702}

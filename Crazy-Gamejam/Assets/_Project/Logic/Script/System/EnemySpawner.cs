@@ -23,7 +23,6 @@ namespace Main.GameSystems
 
         private void SpawnEnemy()
         {
-            // Aqui você passa a posição do spawner para o método GetEnemy
             Vector3 spawnPosition = transform.position;
             GameObject enemy = _enemyPool.GetEnemy(spawnPosition);
 

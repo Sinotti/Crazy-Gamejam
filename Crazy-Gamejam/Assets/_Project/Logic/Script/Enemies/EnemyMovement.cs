@@ -12,7 +12,7 @@ namespace Main.Gameplay.Enemies
 
         [Header("References")]
         [Space(6)]
-        [SerializeField] private Shooter _enemyCombat; 
+        [SerializeField] private PointShooter _enemyCombat; 
         [SerializeField] private NavMeshAgent _navMeshAgent;
 
         private float _distanceToTarget;

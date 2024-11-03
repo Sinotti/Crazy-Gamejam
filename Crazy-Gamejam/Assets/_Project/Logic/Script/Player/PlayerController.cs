@@ -19,6 +19,10 @@ namespace Main.Gameplay.Player
         [Space(6)]
         [SerializeField] private List<Transform> _bodyUnits = new List<Transform>();
 
+        // Nova lista para especificar prefabs personalizados para o início
+        [Header("Initial Body Prefabs")]
+        [SerializeField] private List<GameObject> initialBodyPrefabs = new List<GameObject>();
+
         [Header("References")]
         [Space(6)]
         [SerializeField] private GameObject _bodyUnitPrefab;
@@ -34,7 +38,7 @@ namespace Main.Gameplay.Player
 
         private void Start()
         {
-            for (int i = 0; i < _beginSize - 1; i++) AddBodyUnit();
+            InitializeBodyUnits();
         }
 
         private void Update() // Move to a Coroutine.
@@ -65,7 +69,7 @@ namespace Main.Gameplay.Player
 
                     if (_currentBodyUnit == null || _previousBodyUnit == null)
                     {
-                        continue; 
+                        continue;
                     }
 
                     float distance = Vector3.Distance(_previousBodyUnit.position, _currentBodyUnit.position);
@@ -114,6 +118,22 @@ namespace Main.Gameplay.Player
                 }
 
                 Destroy(unitToRemove.gameObject);
+            }
+        }
+
+        private void InitializeBodyUnits()
+        {
+            foreach (var prefab in initialBodyPrefabs)
+            {
+                Transform newUnit = Instantiate(prefab, transform.position, transform.rotation).transform;
+                newUnit.SetParent(transform);
+                _bodyUnits.Add(newUnit);
+            }
+
+            int remainingUnits = _beginSize - initialBodyPrefabs.Count;
+            for (int i = 0; i < remainingUnits; i++)
+            {
+                AddBodyUnit();
             }
         }
     }

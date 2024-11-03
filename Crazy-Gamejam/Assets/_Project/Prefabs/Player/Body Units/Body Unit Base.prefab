@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 6682366496627639807}
   - component: {fileID: 4645493535658640185}
   - component: {fileID: 5119906494223770487}
-  - component: {fileID: 1086687963884241540}
   m_Layer: 6
   m_Name: Body Unit Base
   m_TagString: Untagged
@@ -104,32 +103,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &1086687963884241540
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3637882382495656542}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c72b1e0f5aa01ba4c801f5f494416625, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _radius: 2
-  _height: 0
-  _detectionLayer:
-    serializedVersion: 2
-    m_Bits: 128
-  _aimSpeed: 7
-  _bulletSpeed: 5
-  _damagePerTick: 2
-  _damageTickCooldown:
-    _cooldownTime: 1
-  _aimPointVisual: {fileID: 0}
-  _bulletPrefab: {fileID: 8078501766731380133, guid: 08f2beeb7f3df174daff2cb3fdc83f64, type: 3}
-  _closerUnit: {fileID: 0}
-  _unitsAround: []
 --- !u!1 &7677579952980369802
 GameObject:
   m_ObjectHideFlags: 0

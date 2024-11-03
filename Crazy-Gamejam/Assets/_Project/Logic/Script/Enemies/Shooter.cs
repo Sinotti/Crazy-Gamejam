@@ -95,11 +95,5 @@ namespace Main.Gameplay.Enemies
             projectileInstance.TryGetComponent(out Projectile projectile);
             projectile.Initialize(_closerUnit.transform, _damagePerTick, _bulletSpeed);
         }
-
-        private void OnDrawGizmos()
-        {
-            Gizmos.color = Color.red;
-            Gizmos.DrawWireSphere(transform.position + transform.up * _height, _radius);
-        }
     }
 }

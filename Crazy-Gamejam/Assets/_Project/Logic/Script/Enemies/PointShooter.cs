@@ -3,7 +3,7 @@ using Main.Utilities;
 
 namespace Main.Gameplay.Enemies
 {
-    public class Shooter : MonoBehaviour
+    public class PointShooter : MonoBehaviour
     {
         [Header("Detection Parameters")]
         [Space(6)]
@@ -82,21 +82,21 @@ namespace Main.Gameplay.Enemies
             {
                 if (CloserUnit.TryGetComponent(out Health health))
                 {
-                    BulletVisual();
-                    //health.TakeDamage(_damagePerTick);
+                    Bullet();
+                    //health.TakeDamage(_damagePerTick); Moved to Projectile
                     _damageTickCooldown.StartCoolDown();
                 }
             }
         }
 
-        private void BulletVisual()
+        private void Bullet()
         {
-            GameObject projectileInstance = Instantiate(_bulletPrefab, transform.position, Quaternion.identity);
+            GameObject projectileInstance = Instantiate(_bulletPrefab, _aimPointVisual.transform.position, Quaternion.identity);
             projectileInstance.TryGetComponent(out Projectile projectile);
             projectile.Initialize(_closerUnit.transform, _damagePerTick, _bulletSpeed);
         }
 
-        private void OnDrawGizmos()
+        private void OnDrawGizmosSelected()
         {
             Gizmos.color = Color.red;
             Gizmos.DrawWireSphere(transform.position + transform.up * _height, _radius);

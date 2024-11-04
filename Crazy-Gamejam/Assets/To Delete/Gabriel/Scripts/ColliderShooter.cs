@@ -9,9 +9,13 @@ public class ColliderShooter : MonoBehaviour
     [Space(6)]
     [SerializeField] private int _damagePerTick; // Tempo em segundos para o sensor ficar inativo
     [SerializeField] private float _cooldownTime; // Tempo em segundos para o sensor ficar inativo
-    private float _activationTime = .5f; 
-    
-    public TriggerSensor _sensor;
+    private float _activationTime = .5f;
+
+    [Header("References")]
+    [Space(6)]
+    [SerializeField] private TriggerSensor _sensor;
+    [SerializeField] private GameObject _sensorDebug; // To remove
+    [SerializeField] private GameObject _sensorDebugSilhouette;// To remove
     
     private void Start()
     {
@@ -29,11 +33,15 @@ public class ColliderShooter : MonoBehaviour
         while (true)
         {
             _sensor.enabled = true;
+            _sensorDebugSilhouette.SetActive(false);
+            _sensorDebug.SetActive(true);
             yield return new WaitForSeconds(_activationTime);
 
             ShootInEnemy();
             //LogDetectedObjects(); 
             _sensor.enabled = false;
+            _sensorDebug.SetActive(false);
+            _sensorDebugSilhouette.SetActive(true);
 
             _sensor.DetectedObjects.Clear();
 

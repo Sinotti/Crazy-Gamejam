@@ -108,7 +108,7 @@ namespace Main.Gameplay.Player
             if (_bodyUnits.Contains(unitToRemove))
             {
                 int index = _bodyUnits.IndexOf(unitToRemove);
-
+                
                 _bodyUnits.RemoveAt(index);
 
                 for (int i = index; i < _bodyUnits.Count - 1; i++)

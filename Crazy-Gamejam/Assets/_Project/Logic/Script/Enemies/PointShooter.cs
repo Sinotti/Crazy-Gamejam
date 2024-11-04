@@ -63,6 +63,11 @@ namespace Main.Gameplay.Enemies
                 }
             }
 
+            if (CloserUnit != null && Vector3.Distance(transform.position, CloserUnit.position) > _radius)
+            {
+                CloserUnit = null;
+            }
+
             RotateToCloser();
         }
 
@@ -83,7 +88,6 @@ namespace Main.Gameplay.Enemies
                 if (CloserUnit.TryGetComponent(out Health health))
                 {
                     Bullet();
-                    //health.TakeDamage(_damagePerTick); Moved to Projectile
                     _damageTickCooldown.StartCoolDown();
                 }
             }

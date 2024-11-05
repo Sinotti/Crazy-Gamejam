@@ -37,6 +37,8 @@ namespace Main.Gameplay.Player
 
         private Vector3 _newPosition;
 
+        public List<Transform> BodyUnits => _bodyUnits;
+
         private void Start()
         {
             InitializeBodyUnits();

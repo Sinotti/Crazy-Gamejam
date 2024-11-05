@@ -11,7 +11,6 @@ public class UnitSlot : MonoBehaviour, IDropHandler
         
         if (_dropped.TryGetComponent(out DraggableUnit draggableUnit))
         {
-            Debug.Log("Dropped");
             draggableUnit.ParentAfterDrag = transform;
         }
     }

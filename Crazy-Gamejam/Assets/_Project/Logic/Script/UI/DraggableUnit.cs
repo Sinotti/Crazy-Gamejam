@@ -14,8 +14,6 @@ public class DraggableUnit : MonoBehaviour, IBeginDragHandler, IDragHandler ,IEn
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        Debug.Log("Begin Drag");
-
         _parentAfterDrag = transform.parent;
 
         transform.SetParent(transform.root);
@@ -27,13 +25,11 @@ public class DraggableUnit : MonoBehaviour, IBeginDragHandler, IDragHandler ,IEn
 
     public void OnDrag(PointerEventData eventData)
     {
-        Debug.Log("Dragging");
         transform.position = Input.mousePosition;
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        Debug.Log("OnEndDrag");
         transform.SetParent(_parentAfterDrag);
 
         _canvasGroup.blocksRaycasts = true;

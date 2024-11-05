@@ -22,7 +22,7 @@ public class BodyUnitsUIManager : MonoBehaviour
     {
         for(int i = 0; i <_playerController.BodyUnits.Count; i++)
         {
-            Instantiate(_unitSlotPrefab, _slotsContainer);
+            //Instantiate(_unitSlotPrefab, _slotsContainer);
         }
     }
 }

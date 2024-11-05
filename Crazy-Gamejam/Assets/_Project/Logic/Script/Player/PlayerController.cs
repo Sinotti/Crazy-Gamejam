@@ -59,38 +59,35 @@ namespace Main.Gameplay.Player
         {
             if (_bodyUnits.Count == 0) return;
 
-            _bodyUnits[0].Translate(_bodyUnits[0].forward * Input.GetAxis("Vertical") * _movementSpeed * Time.smoothDeltaTime, Space.World);
+            _bodyUnits[0].Translate(_bodyUnits[0].forward * _movementSpeed * Time.smoothDeltaTime, Space.World);
 
-            if (Input.GetAxis("Vertical") != 0)
+            for (int i = 1; i < _bodyUnits.Count; i++)
             {
-                for (int i = 1; i < _bodyUnits.Count; i++)
+                _currentBodyUnit = _bodyUnits[i];
+                _previousBodyUnit = _bodyUnits[i - 1];
+
+                if (_currentBodyUnit == null || _previousBodyUnit == null)
                 {
-                    _currentBodyUnit = _bodyUnits[i];
-                    _previousBodyUnit = _bodyUnits[i - 1];
-
-                    if (_currentBodyUnit == null || _previousBodyUnit == null)
-                    {
-                        continue;
-                    }
-
-                    float distance = Vector3.Distance(_previousBodyUnit.position, _currentBodyUnit.position);
-                    Vector3 newpos = _previousBodyUnit.position;
-
-                    newpos.y = _bodyUnits[0].position.y;
-
-                    _delayPerUnit = Time.deltaTime * distance / _UnitsDistance * _movementSpeed;
-
-                    if (_delayPerUnit > 0.5f) _delayPerUnit = 0.5f;
-
-                    _currentBodyUnit.position = Vector3.Slerp(_currentBodyUnit.position, newpos, _delayPerUnit);
-                    _currentBodyUnit.rotation = Quaternion.Slerp(_currentBodyUnit.rotation, _previousBodyUnit.rotation, _delayPerUnit);
+                    continue;
                 }
+
+                float distance = Vector3.Distance(_previousBodyUnit.position, _currentBodyUnit.position);
+                Vector3 newpos = _previousBodyUnit.position;
+
+                newpos.y = _bodyUnits[0].position.y;
+
+                _delayPerUnit = Time.deltaTime * distance / _UnitsDistance * _movementSpeed;
+
+                if (_delayPerUnit > 0.5f) _delayPerUnit = 0.5f;
+
+                _currentBodyUnit.position = Vector3.Slerp(_currentBodyUnit.position, newpos, _delayPerUnit);
+                _currentBodyUnit.rotation = Quaternion.Slerp(_currentBodyUnit.rotation, _previousBodyUnit.rotation, _delayPerUnit);
             }
         }
 
         private void HandleRotation()
         {
-            if (Input.GetAxis("Horizontal") != 0 && Input.GetAxis("Vertical") != 0)
+            if (Input.GetAxis("Horizontal") != 0)
                 _bodyUnits[0].Rotate(Vector3.up * _rotationSpeed * Time.deltaTime * Input.GetAxis("Horizontal"));
         }
 

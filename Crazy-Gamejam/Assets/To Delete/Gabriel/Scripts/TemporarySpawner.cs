@@ -7,7 +7,6 @@ namespace Main.GameSystems
         [Header("Spawner Settings")]
         [Space(6)]
         [SerializeField] private GameObject _enemyPrefab;
-        [SerializeField] private int _maxEnemies = 10;
         [SerializeField] private float _spawnRange = 1.0f; 
 
         private int _currentEnemyCount = 0;
@@ -15,7 +14,7 @@ namespace Main.GameSystems
         private void Update()
         {
 
-            if (Input.GetKeyDown(KeyCode.F) && _currentEnemyCount < _maxEnemies)
+            if (Input.GetKeyDown(KeyCode.F))
             {
                 SpawnEnemy();
             }

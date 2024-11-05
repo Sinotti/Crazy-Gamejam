@@ -2,24 +2,32 @@ using UnityEngine;
 
 public class EnemyMeleeDamage : MonoBehaviour
 {
+    [Header("Damage Parameters")]
+    [Space(6)]
+    [SerializeField] private int _damage;
+
     [Header("Detection Parameters")]
     [Space(6)]
     [SerializeField] private Vector3 _detectionBoxSize;
+    [SerializeField] private Vector3 _detectionBoxCenter; // Modifiquei o nome para deixar claro que é o centro do colisor
     [Space(6)]
     [SerializeField] LayerMask _detectionLayer;
 
     private Collider[] _bodyParts;
-    private Vector3 _colliderSize = Vector3.zero;
 
     private void Update()
     {
-        _bodyParts = Physics.OverlapBox(transform.position + _colliderSize, _detectionBoxSize / 2, Quaternion.identity, _detectionLayer);
+        // Usando o _colliderCenter para definir o centro da detecção
+        _bodyParts = Physics.OverlapBox(transform.position + _detectionBoxCenter, _detectionBoxSize / 2, Quaternion.identity, _detectionLayer);
 
-        if(_bodyParts.Length > 0)
+        if (_bodyParts.Length > 0)
         {
             for (int i = 0; i < _bodyParts.Length; i++)
             {
-                _bodyParts[i].gameObject.SetActive(false);
+                if (_bodyParts[i].TryGetComponent(out Health health))
+                {
+                    health.TakeDamage(_damage);
+                }
             }
 
             Destroy(gameObject);
@@ -29,6 +37,6 @@ public class EnemyMeleeDamage : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.blue;
-        Gizmos.DrawWireCube(transform.position + _colliderSize, _detectionBoxSize);
+        Gizmos.DrawWireCube(transform.position + _detectionBoxCenter, _detectionBoxSize);
     }
 }

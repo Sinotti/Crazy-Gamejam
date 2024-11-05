@@ -24,7 +24,7 @@ public class ColliderShooter : MonoBehaviour
             Debug.LogError("Sensor is NULL.");
             return;
         }
-
+        
         StartCoroutine(SensorActivationCycle());
     }
 

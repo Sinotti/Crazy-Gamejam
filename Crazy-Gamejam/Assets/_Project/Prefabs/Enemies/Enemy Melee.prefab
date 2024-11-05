@@ -109,7 +109,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd6194401d72586408f3410304767170, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _detectionBoxSize: {x: 0.6, y: 0.6, z: 0.6}
+  _damage: 1
+  _detectionBoxSize: {x: 1, y: 1, z: 3}
+  _detectionBoxCenter: {x: 0, y: 0, z: 0}
   _detectionLayer:
     serializedVersion: 2
     m_Bits: 64

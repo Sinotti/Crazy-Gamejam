@@ -19,13 +19,14 @@ namespace Main.Gameplay.Player
         [Space(6)]
         [SerializeField] private List<Transform> _bodyUnits = new List<Transform>();
 
-        // Nova lista para especificar prefabs personalizados para o início
+
         [Header("Initial Body Prefabs")]
         [SerializeField] private List<GameObject> initialBodyPrefabs = new List<GameObject>();
 
         [Header("References")]
         [Space(6)]
-        [SerializeField] private GameObject _bodyUnitPrefab;
+
+        [SerializeField] private List<GameObject> _bodyPartPrefabs = new List<GameObject>();
 
         private float _delayPerUnit;
 
@@ -98,7 +99,9 @@ namespace Main.Gameplay.Player
             _lastBodyUnit = _bodyUnits[_bodyUnits.Count - 1];
             _newPosition = _lastBodyUnit.position - _lastBodyUnit.forward * _addUnitOffset;
 
-            _newUnit = Instantiate(_bodyUnitPrefab, _newPosition, _lastBodyUnit.rotation).transform;
+            GameObject randomBodyPartPrefab = _bodyPartPrefabs[Random.Range(0, _bodyPartPrefabs.Count)];
+
+            _newUnit = Instantiate(randomBodyPartPrefab, _newPosition, _lastBodyUnit.rotation).transform;
             _newUnit.SetParent(transform);
             _bodyUnits.Add(_newUnit);
         }

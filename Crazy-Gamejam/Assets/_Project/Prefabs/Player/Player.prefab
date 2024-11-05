@@ -129,7 +129,6 @@ GameObject:
   - component: {fileID: 3096359146377048470}
   - component: {fileID: 955154286844012698}
   - component: {fileID: 6553092976303914761}
-  - component: {fileID: 7841412580802637940}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -177,7 +176,10 @@ MonoBehaviour:
   - {fileID: 1860355735242069084, guid: 627b9d68f9aa5304095e5db8df577d7c, type: 3}
   - {fileID: 1105531169783981204, guid: 11d7ee52ed98118499153e5fc051921a, type: 3}
   - {fileID: 3637882382495656542, guid: 044fd310d470a454689b571aebefcb3d, type: 3}
-  _bodyUnitPrefab: {fileID: 1860355735242069084, guid: 627b9d68f9aa5304095e5db8df577d7c, type: 3}
+  _bodyPartPrefabs:
+  - {fileID: 1417221439994386282, guid: 6e0f370b2bab93943b1234e44b7f7fbe, type: 3}
+  - {fileID: 1860355735242069084, guid: 627b9d68f9aa5304095e5db8df577d7c, type: 3}
+  - {fileID: 1105531169783981204, guid: 11d7ee52ed98118499153e5fc051921a, type: 3}
 --- !u!54 &6553092976303914761
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -200,32 +202,11 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
---- !u!65 &7841412580802637940
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5809068775728225605}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 2.3808582}
-  m_Center: {x: 0, y: 0, z: 0.9427031}
 --- !u!1 &6926432188360318480
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -18,15 +19,16 @@ namespace Main.Gameplay.Player
 
         [Space(6)]
         [SerializeField] private List<Transform> _bodyUnits = new List<Transform>();
-
+        [SerializeField] private List<BodyPartSO> _bodyUnitsSO = new List<BodyPartSO>();
 
         [Header("Initial Body Prefabs")]
-        [SerializeField] private List<GameObject> initialBodyPrefabs = new List<GameObject>();
+        [SerializeField] private List<BodyPartSO> initialBodyPrefabs = new List<BodyPartSO>();
+
 
         [Header("References")]
         [Space(6)]
 
-        [SerializeField] private List<GameObject> _bodyPartPrefabs = new List<GameObject>();
+        [SerializeField] private List<BodyPartSO> _bodyPartPrefabs = new List<BodyPartSO>();
 
         private float _delayPerUnit;
 
@@ -37,7 +39,7 @@ namespace Main.Gameplay.Player
 
         private Vector3 _newPosition;
 
-        public List<Transform> BodyUnits => _bodyUnits;
+        public List<BodyPartSO> BodyUnits => _bodyUnitsSO;
 
         private void Start()
         {
@@ -98,11 +100,13 @@ namespace Main.Gameplay.Player
             _lastBodyUnit = _bodyUnits[_bodyUnits.Count - 1];
             _newPosition = _lastBodyUnit.position - _lastBodyUnit.forward * _addUnitOffset;
 
-            GameObject randomBodyPartPrefab = _bodyPartPrefabs[Random.Range(0, _bodyPartPrefabs.Count)];
+            BodyPartSO randomBodyPartPrefab = _bodyPartPrefabs[UnityEngine.Random.Range(0, _bodyPartPrefabs.Count)];
+            _bodyUnitsSO.Add(randomBodyPartPrefab);
 
-            _newUnit = Instantiate(randomBodyPartPrefab, _newPosition, _lastBodyUnit.rotation).transform;
+            _newUnit = Instantiate(randomBodyPartPrefab.UnitInGamePrefab, _newPosition, _lastBodyUnit.rotation).transform;
             _newUnit.SetParent(transform);
             _bodyUnits.Add(_newUnit);
+            
         }
 
         public void RemoveBodyUnit(Transform unitToRemove)
@@ -112,6 +116,7 @@ namespace Main.Gameplay.Player
                 int index = _bodyUnits.IndexOf(unitToRemove);
                 
                 _bodyUnits.RemoveAt(index);
+                _bodyUnitsSO.RemoveAt(index);
 
                 for (int i = index; i < _bodyUnits.Count - 1; i++)
                 {
@@ -125,9 +130,10 @@ namespace Main.Gameplay.Player
 
         private void InitializeBodyUnits()
         {
-            foreach (var prefab in initialBodyPrefabs)
+            foreach (BodyPartSO prefab in initialBodyPrefabs)
             {
-                Transform newUnit = Instantiate(prefab, transform.position, transform.rotation).transform;
+                Transform newUnit = Instantiate(prefab.UnitInGamePrefab, transform.position, transform.rotation).transform;
+                _bodyUnitsSO.Add(prefab);
                 newUnit.SetParent(transform);
                 _bodyUnits.Add(newUnit);
             }

@@ -7,22 +7,17 @@ public class BodyUnitsUIManager : MonoBehaviour
     [SerializeField] private GameObject _unitSlotPrefab;
     [SerializeField] private Transform _slotsContainer;
 
-    
     private void Awake()
     {
         InitializeUI();
-    }
-
-    private void Update()
-    {
-        
     }
 
     private void InitializeUI()
     {
         for(int i = 0; i <_playerController.BodyUnits.Count; i++)
         {
-            //Instantiate(_unitSlotPrefab, _slotsContainer);
+            Transform currentSlot = Instantiate(_unitSlotPrefab, _slotsContainer).transform;
+            Instantiate(_playerController.BodyUnits[i + 1].UnitUIPrefab, currentSlot);
         }
     }
 }

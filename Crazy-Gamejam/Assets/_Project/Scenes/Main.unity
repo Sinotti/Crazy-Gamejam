@@ -541,6 +541,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 143577615219882176, guid: dc32c1cc374ea5344880b95c3c49cf8f, type: 3}
+      propertyPath: playerController
+      value: 
+      objectReference: {fileID: 843357070}
     - target: {fileID: 349764798557098107, guid: dc32c1cc374ea5344880b95c3c49cf8f, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -621,7 +625,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8522977584765030528, guid: dc32c1cc374ea5344880b95c3c49cf8f, type: 3}
+    - target: {fileID: 8849023926525671615, guid: dc32c1cc374ea5344880b95c3c49cf8f, type: 3}
       propertyPath: _playerController
       value: 
       objectReference: {fileID: 843357070}
@@ -629,6 +633,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 8928373074152088009, guid: dc32c1cc374ea5344880b95c3c49cf8f, type: 3}
+      propertyPath: _playerController
+      value: 
+      objectReference: {fileID: 843357070}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1268,6 +1276,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 955154286844012698, guid: 1bb33cad45112d74cb5e587aaaa08351, type: 3}
+      propertyPath: _addUnitOffset
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 955154286844012698, guid: 1bb33cad45112d74cb5e587aaaa08351, type: 3}
       propertyPath: _movementSpeed
       value: 6
       objectReference: {fileID: 0}
@@ -1276,8 +1288,12 @@ PrefabInstance:
       value: 250
       objectReference: {fileID: 0}
     - target: {fileID: 955154286844012698, guid: 1bb33cad45112d74cb5e587aaaa08351, type: 3}
+      propertyPath: _bodyUnits.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 955154286844012698, guid: 1bb33cad45112d74cb5e587aaaa08351, type: 3}
       propertyPath: _bodyUnitsSO.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 955154286844012698, guid: 1bb33cad45112d74cb5e587aaaa08351, type: 3}
       propertyPath: initialBodyPrefabs.Array.size
@@ -1333,7 +1349,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3096359146377048470, guid: 1bb33cad45112d74cb5e587aaaa08351, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1.83
+      value: -9.71
       objectReference: {fileID: 0}
     - target: {fileID: 3096359146377048470, guid: 1bb33cad45112d74cb5e587aaaa08351, type: 3}
       propertyPath: m_LocalRotation.w

@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -6,11 +7,12 @@ public class DraggableUnit : MonoBehaviour, IBeginDragHandler, IDragHandler ,IEn
 {
     [SerializeField] private Image _image;
     [SerializeField] private CanvasGroup _canvasGroup;
+    [SerializeField] private BodyPartSO _bodyUnitSO;
 
     private Transform _parentAfterDrag;
 
     public Transform ParentAfterDrag { get => _parentAfterDrag; set => _parentAfterDrag = value; }
-
+    public BodyPartSO BodyUnitSO { get => _bodyUnitSO; set => _bodyUnitSO = value; }
 
     public void OnBeginDrag(PointerEventData eventData)
     {

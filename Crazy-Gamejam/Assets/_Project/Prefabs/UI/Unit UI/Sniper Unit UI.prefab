@@ -88,6 +88,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3695078206589073804, guid: 78164c8207f8d484ea4ddd5502924659, type: 3}
+      propertyPath: _bodyUnitSO
+      value: 
+      objectReference: {fileID: 11400000, guid: 691202c868ef78148905f3d087338a81, type: 2}
     - target: {fileID: 5781083493524224790, guid: 78164c8207f8d484ea4ddd5502924659, type: 3}
       propertyPath: m_Color.b
       value: 1
@@ -102,7 +106,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8921369214910979217, guid: 78164c8207f8d484ea4ddd5502924659, type: 3}
       propertyPath: m_Name
-      value: Unit UI Base Variant
+      value: Sniper Unit UI
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

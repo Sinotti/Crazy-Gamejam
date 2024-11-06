@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 713ea2f42f136134cafd41cdf815cc91, type: 3}
-  m_Name: TurretSO
+  m_Name: Shotgun
   m_EditorClassIdentifier: 
-  _unitUIPrefab: {fileID: 1814188669740465416, guid: d1d1a7b33b7a93a418f817343cf141e3, type: 3}
-  _unitInGamePrefab: {fileID: 1105531169783981204, guid: 11d7ee52ed98118499153e5fc051921a, type: 3}
+  _unitUIPrefab: {fileID: 7754777446791989502, guid: b1abb91b52cb81d46a4395274da60063, type: 3}
+  _unitInGamePrefab: {fileID: 1417221439994386282, guid: 6e0f370b2bab93943b1234e44b7f7fbe, type: 3}

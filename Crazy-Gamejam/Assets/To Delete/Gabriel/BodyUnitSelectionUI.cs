@@ -8,11 +8,8 @@ public class BodyUnitSelectionUI : MonoBehaviour
 {
     [Header("Store Parameters")]
     [Space(6)]
-    [SerializeField] private int playerMoney = 100;
-    [SerializeField] private List<BodyUnitStoreItem> availableBodyParts;
-
-    [Header("Player Money")]
-    [Space(6)]
+    [SerializeField] private int _playerMoney = 100;
+    [SerializeField] private List<BodyUnitStoreItem> _availableBodyParts;
 
     [Header("References")]
     [Space(6)]
@@ -24,6 +21,9 @@ public class BodyUnitSelectionUI : MonoBehaviour
     [SerializeField] private PlayerController playerController;
 
     private List<BodyUnitStoreItem> currentSelection = new List<BodyUnitStoreItem>();
+
+    public List<BodyUnitStoreItem> AvailableBodyParts { get => _availableBodyParts; set => _availableBodyParts = value; }
+    public int PlayerMoney { get => _playerMoney; set => _playerMoney = value; }
 
     [System.Serializable]
     public class BodyUnitStoreItem
@@ -48,7 +48,7 @@ public class BodyUnitSelectionUI : MonoBehaviour
 
         for (int i = 0; i < 3; i++)
         {
-            BodyUnitStoreItem randomItem = availableBodyParts[Random.Range(0, availableBodyParts.Count)];
+            BodyUnitStoreItem randomItem = _availableBodyParts[Random.Range(0, _availableBodyParts.Count)];
             currentSelection.Add(randomItem);
 
             GameObject unitButton = Instantiate(unitButtonPrefab, selectionContainer);
@@ -62,9 +62,9 @@ public class BodyUnitSelectionUI : MonoBehaviour
 
     private void TrySelectBodyPart(BodyUnitStoreItem selectedItem)
     {
-        if (playerMoney >= selectedItem.price) 
+        if (_playerMoney >= selectedItem.price) 
         {
-            playerMoney -= selectedItem.price; 
+            _playerMoney -= selectedItem.price; 
             playerController.AddBodyUnit(selectedItem.bodyPart);
             unitsUIManager.UpdateUI(); 
             UpdateMoneyUI(); 
@@ -76,8 +76,8 @@ public class BodyUnitSelectionUI : MonoBehaviour
         }
     }
 
-    private void UpdateMoneyUI()
+    public void UpdateMoneyUI()
     {
-        moneyText.text = playerMoney.ToString();  
+        moneyText.text = _playerMoney.ToString();  
     }
 }

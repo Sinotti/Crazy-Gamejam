@@ -1,15 +1,17 @@
 using Main.Gameplay.Player;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Rendering.Universal;
 
 public class BodyUnitsUIManager : MonoBehaviour
 {
+    [SerializeField] private List<BodyPartSO> _registeredBodyUnitsSO = new List<BodyPartSO>();
+
+    [Header("Referencecs")]
+    [Space(6)]
     [SerializeField] private PlayerController _playerController;
     [SerializeField] private GameObject _unitSlotPrefab;
     [SerializeField] private Transform _slotsContainer;
 
-    [SerializeField] private List<BodyPartSO> _registeredBodyUnitsSO = new List<BodyPartSO>();
     private Transform _currentSlot;
 
     private void OnEnable()

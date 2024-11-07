@@ -225,10 +225,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61c65e8538890d24d85516f9d4ba0ad4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _registeredBodyUnitsSO: []
   _playerController: {fileID: 0}
   _unitSlotPrefab: {fileID: 6070882313943251502, guid: 79627fa90614f834f9a516b16fd0c4b5, type: 3}
   _slotsContainer: {fileID: 6406084714927078103}
-  _registeredBodyUnitsSO: []
 --- !u!114 &143577615219882176
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -241,8 +241,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16c34edaae7141c42b4832448cd54f22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerMoney: 100
-  availableBodyParts:
+  _playerMoney: 100
+  _availableBodyParts:
   - bodyPart: {fileID: 11400000, guid: 52f10b8c536de2e408f02527c6b287ce, type: 2}
     price: 10
   - bodyPart: {fileID: 11400000, guid: cfab6e1ec5a01514d8e2d27a741f0ab6, type: 2}
@@ -1104,6 +1104,10 @@ PrefabInstance:
       propertyPath: _bodyUnitsUIManager
       value: 
       objectReference: {fileID: 8849023926525671615}
+    - target: {fileID: 6456908496735846787, guid: d9fd75d605664df4d8b18d99fdc70f58, type: 3}
+      propertyPath: _bodyUnitSelectionUI
+      value: 
+      objectReference: {fileID: 143577615219882176}
     - target: {fileID: 6589921723670049142, guid: d9fd75d605664df4d8b18d99fdc70f58, type: 3}
       propertyPath: m_Name
       value: Trash

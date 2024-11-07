@@ -31,6 +31,7 @@ namespace Main.Gameplay.Enemies
         private void Start()
         {
             _navMeshAgent.speed = _moveSpeed;
+            _navMeshAgent.acceleration = _moveSpeed;
         }
 
         private void Update() // Move to a Coroutine

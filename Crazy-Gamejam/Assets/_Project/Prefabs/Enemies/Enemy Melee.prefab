@@ -14,11 +14,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5126661310044472474, guid: 15cf5de748319b24899ac7d6cc3f0639, type: 3}
       propertyPath: _radius
-      value: 7
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 5126661310044472474, guid: 15cf5de748319b24899ac7d6cc3f0639, type: 3}
       propertyPath: _moveSpeed
-      value: 26
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6954544090426373439, guid: 15cf5de748319b24899ac7d6cc3f0639, type: 3}
       propertyPath: m_LocalPosition.x

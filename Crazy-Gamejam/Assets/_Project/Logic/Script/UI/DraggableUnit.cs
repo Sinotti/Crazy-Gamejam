@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -6,16 +7,15 @@ public class DraggableUnit : MonoBehaviour, IBeginDragHandler, IDragHandler ,IEn
 {
     [SerializeField] private Image _image;
     [SerializeField] private CanvasGroup _canvasGroup;
+    [SerializeField] private BodyPartSO _bodyUnitSO;
 
     private Transform _parentAfterDrag;
 
     public Transform ParentAfterDrag { get => _parentAfterDrag; set => _parentAfterDrag = value; }
-
+    public BodyPartSO BodyUnitSO { get => _bodyUnitSO; set => _bodyUnitSO = value; }
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        Debug.Log("Begin Drag");
-
         _parentAfterDrag = transform.parent;
 
         transform.SetParent(transform.root);
@@ -27,13 +27,11 @@ public class DraggableUnit : MonoBehaviour, IBeginDragHandler, IDragHandler ,IEn
 
     public void OnDrag(PointerEventData eventData)
     {
-        Debug.Log("Dragging");
         transform.position = Input.mousePosition;
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        Debug.Log("OnEndDrag");
         transform.SetParent(_parentAfterDrag);
 
         _canvasGroup.blocksRaycasts = true;

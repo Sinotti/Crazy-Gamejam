@@ -1,5 +1,7 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Main.Gameplay.Player
 {
@@ -18,17 +20,21 @@ namespace Main.Gameplay.Player
 
         [Space(6)]
         [SerializeField] private List<Transform> _bodyUnits = new List<Transform>();
-
+        [SerializeField] private List<BodyPartSO> _bodyUnitsSO = new List<BodyPartSO>();
 
         [Header("Initial Body Prefabs")]
-        [SerializeField] private List<GameObject> initialBodyPrefabs = new List<GameObject>();
+        [SerializeField] private List<BodyPartSO> initialBodyPrefabs = new List<BodyPartSO>();
+
 
         [Header("References")]
         [Space(6)]
 
-        [SerializeField] private List<GameObject> _bodyPartPrefabs = new List<GameObject>();
+        [SerializeField] private List<BodyPartSO> _bodyPartPrefabs = new List<BodyPartSO>();
+
 
         private float _delayPerUnit;
+        private float _horizontalInput;
+        private bool _jumpInput;
 
         private Transform _currentBodyUnit;
         private Transform _previousBodyUnit;
@@ -37,21 +43,30 @@ namespace Main.Gameplay.Player
 
         private Vector3 _newPosition;
 
-        public List<Transform> BodyUnits => _bodyUnits;
+        public List<BodyPartSO> BodyUnitsSO => _bodyUnitsSO;
 
         private void Start()
         {
             InitializeBodyUnits();
         }
 
-        private void Update() // Move to a Coroutine.
+        private void Update()
         {
+            ReadInputs();
             HandleRotation();
             Movement();
 
-            if (Input.GetButtonDown("Jump")) AddBodyUnit(); // Replace to New Input System.
+            if (_jumpInput) AddBodyUnit(); // Replace to New Input System.
         }
 
+        private void ReadInputs()
+        {
+            if (!UIManager.Instance.IsPaused)
+            {
+                _horizontalInput = Input.GetAxis("Horizontal");
+                //_jumpInput = Input.GetButtonDown("Jump");
+            }
+        }
         public void Destroyed(Transform obj)
         {
             RemoveBodyUnit(obj);
@@ -89,8 +104,8 @@ namespace Main.Gameplay.Player
 
         private void HandleRotation()
         {
-            if (Input.GetAxis("Horizontal") != 0)
-                _bodyUnits[0].Rotate(Vector3.up * _rotationSpeed * Time.deltaTime * Input.GetAxis("Horizontal"));
+            if (_horizontalInput != 0)
+                _bodyUnits[0].Rotate(Vector3.up * _rotationSpeed * Time.deltaTime * _horizontalInput);
         }
 
         public void AddBodyUnit()
@@ -98,11 +113,13 @@ namespace Main.Gameplay.Player
             _lastBodyUnit = _bodyUnits[_bodyUnits.Count - 1];
             _newPosition = _lastBodyUnit.position - _lastBodyUnit.forward * _addUnitOffset;
 
-            GameObject randomBodyPartPrefab = _bodyPartPrefabs[Random.Range(0, _bodyPartPrefabs.Count)];
+            BodyPartSO randomBodyPartPrefab = _bodyPartPrefabs[UnityEngine.Random.Range(0, _bodyPartPrefabs.Count)];
+            _bodyUnitsSO.Add(randomBodyPartPrefab);
 
-            _newUnit = Instantiate(randomBodyPartPrefab, _newPosition, _lastBodyUnit.rotation).transform;
+            _newUnit = Instantiate(randomBodyPartPrefab.UnitInGamePrefab, _newPosition, _lastBodyUnit.rotation).transform;
             _newUnit.SetParent(transform);
             _bodyUnits.Add(_newUnit);
+            
         }
 
         public void RemoveBodyUnit(Transform unitToRemove)
@@ -112,6 +129,7 @@ namespace Main.Gameplay.Player
                 int index = _bodyUnits.IndexOf(unitToRemove);
                 
                 _bodyUnits.RemoveAt(index);
+                _bodyUnitsSO.RemoveAt(index);
 
                 for (int i = index; i < _bodyUnits.Count - 1; i++)
                 {
@@ -122,12 +140,34 @@ namespace Main.Gameplay.Player
                 Destroy(unitToRemove.gameObject);
             }
         }
+        public void UpdateBodyUnits(List<BodyPartSO> updatedBodyUnitsSO)
+        {
+            foreach (Transform unit in _bodyUnits)
+            {
+                if (unit != null)
+                {
+                    Destroy(unit.gameObject);
+                }
+            }
+            _bodyUnits.Clear();
+            _bodyUnitsSO.Clear();
+
+            foreach (BodyPartSO bodyPartSO in updatedBodyUnitsSO)
+            {
+                _bodyUnitsSO.Add(bodyPartSO);
+
+                Transform newUnit = Instantiate(bodyPartSO.UnitInGamePrefab, transform.position, transform.rotation).transform;
+                newUnit.SetParent(transform);
+                _bodyUnits.Add(newUnit);
+            }
+        }
 
         private void InitializeBodyUnits()
         {
-            foreach (var prefab in initialBodyPrefabs)
+            foreach (BodyPartSO prefab in initialBodyPrefabs)
             {
-                Transform newUnit = Instantiate(prefab, transform.position, transform.rotation).transform;
+                Transform newUnit = Instantiate(prefab.UnitInGamePrefab, transform.position, transform.rotation).transform;
+                _bodyUnitsSO.Add(prefab);
                 newUnit.SetParent(transform);
                 _bodyUnits.Add(newUnit);
             }
@@ -138,5 +178,43 @@ namespace Main.Gameplay.Player
                 AddBodyUnit();
             }
         }
+
+        public void AddBodyUnit(BodyPartSO bodyPartSO)
+        {
+            _lastBodyUnit = _bodyUnits[_bodyUnits.Count - 1];
+            _newPosition = _lastBodyUnit.position - _lastBodyUnit.forward * _addUnitOffset;
+
+            _bodyUnitsSO.Add(bodyPartSO);
+
+            _newUnit = Instantiate(bodyPartSO.UnitInGamePrefab, _newPosition, _lastBodyUnit.rotation).transform;
+            _newUnit.SetParent(transform);
+            _bodyUnits.Add(_newUnit);
+        }
+
+        public void RemoveBodyUnit(BodyPartSO bodyPartSO)
+        {
+            // Verifica se o BodyPartSO está na lista e encontra o índice correspondente
+            int index = _bodyUnitsSO.IndexOf(bodyPartSO);
+            if (index != -1)
+            {
+                // Remove o BodyPartSO da lista
+                _bodyUnitsSO.RemoveAt(index);
+
+                // Remove o Transform correspondente do corpo
+                Transform unitToRemove = _bodyUnits[index];
+                _bodyUnits.RemoveAt(index);
+
+                // Destrói o objeto do corpo removido
+                Destroy(unitToRemove.gameObject);
+
+                // Reposiciona as unidades restantes
+                for (int i = index; i < _bodyUnits.Count - 1; i++)
+                {
+                    _bodyUnits[i].position = _bodyUnits[i + 1].position;
+                    _bodyUnits[i].rotation = _bodyUnits[i + 1].rotation;
+                }
+            }
+        }
+
     }
 }

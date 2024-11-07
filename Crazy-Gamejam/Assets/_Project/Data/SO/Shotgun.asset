@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 713ea2f42f136134cafd41cdf815cc91, type: 3}
-  m_Name: SniperSO
+  m_Name: Shotgun
   m_EditorClassIdentifier: 
-  _UnitUIPrefab: {fileID: 398847511097161082, guid: 63eec3452ae9b734582c02d18e63b5da, type: 3}
-  _UnitInGamePrefab: {fileID: 1860355735242069084, guid: 627b9d68f9aa5304095e5db8df577d7c, type: 3}
+  _unitUIPrefab: {fileID: 7754777446791989502, guid: b1abb91b52cb81d46a4395274da60063, type: 3}
+  _unitInGamePrefab: {fileID: 1417221439994386282, guid: 6e0f370b2bab93943b1234e44b7f7fbe, type: 3}

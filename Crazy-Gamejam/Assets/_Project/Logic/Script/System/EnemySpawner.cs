@@ -15,7 +15,6 @@ namespace Main.GameSystems
         [SerializeField] private int _maxEnemiesPerHorde = 10;
         [SerializeField] private int _waves = 5;
         [SerializeField] private int _hordesPerWave = 3;
-        [SerializeField] private float _timeBetweenWaves = 5f;
 
         private float _nextSpawnTime = 0f;
         private int _currentEnemyCount = 0;
@@ -23,7 +22,7 @@ namespace Main.GameSystems
         private int _currentHorde = 1;
 
         private List<GameObject> _enemies = new List<GameObject>();
-        [SerializeField] private List<Transform> _spawnPoints = new List<Transform>(); // Lista de pontos de spawn
+        [SerializeField] private List<Transform> _spawnPoints = new List<Transform>();
 
         private bool _isSpawningWave = false;
 
@@ -77,7 +76,8 @@ namespace Main.GameSystems
                     _hordesPerWave++;
                     _enemies.Clear();
 
-                    UIManager.Instance.ToggleStore();
+                    //UIManager.Instance.ToggleStore();
+                    UIManager.Instance.ShowTextSequence(_currentWave, _currentWave + 1);
                 }
 
                 _currentWave++;

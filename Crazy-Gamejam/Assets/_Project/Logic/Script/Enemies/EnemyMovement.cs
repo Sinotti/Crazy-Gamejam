@@ -61,16 +61,16 @@ namespace Main.Gameplay.Enemies
 
                 if (_distanceToTarget > _stopDistance)
                 {
-                    _navMeshAgent.SetDestination(_closerUnit.position);
+                    _navMeshAgent?.SetDestination(_closerUnit.position);
                 }
                 else
                 {
-                    _navMeshAgent.ResetPath();
+                    _navMeshAgent?.ResetPath();
                 }
             }
             else
             {
-                _navMeshAgent.ResetPath();
+                _navMeshAgent?.ResetPath();
             }
         }
 
@@ -96,6 +96,12 @@ namespace Main.Gameplay.Enemies
         {
             Gizmos.color = Color.red;
             Gizmos.DrawWireSphere(transform.position + transform.up * _height, _radius);
+        }
+
+        public void Stop()
+        {
+            //_navMeshAgent.isStopped = true;
+            _navMeshAgent.enabled = false;
         }
     }
 }

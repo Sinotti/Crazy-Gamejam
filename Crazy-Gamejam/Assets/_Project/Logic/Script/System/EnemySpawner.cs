@@ -11,18 +11,19 @@ namespace Main.GameSystems
         [Header("Spawner Settings")]
         [Space(6)]
         [SerializeField] private GameObject _enemyPrefab;
-        [SerializeField] private float _spawnTime = 2f; 
+        [SerializeField] private float _spawnTime = 2f;
         [SerializeField] private int _maxEnemiesPerHorde = 10;
-        [SerializeField] private int _waves = 5; 
+        [SerializeField] private int _waves = 5;
         [SerializeField] private int _hordesPerWave = 3;
-        [SerializeField] private float _timeBetweenWaves = 5f; 
+        [SerializeField] private float _timeBetweenWaves = 5f;
 
         private float _nextSpawnTime = 0f;
-        [SerializeField] private int _currentEnemyCount = 0;
+        private int _currentEnemyCount = 0;
         private int _currentWave = 1;
         private int _currentHorde = 1;
 
-        [SerializeField] private List<GameObject> _enemies = new List<GameObject>();
+        private List<GameObject> _enemies = new List<GameObject>();
+        [SerializeField] private List<Transform> _spawnPoints = new List<Transform>(); // Lista de pontos de spawn
 
         private bool _isSpawningWave = false;
 
@@ -34,7 +35,7 @@ namespace Main.GameSystems
             }
             else
             {
-                Instance = this; 
+                Instance = this;
             }
         }
 
@@ -53,7 +54,7 @@ namespace Main.GameSystems
 
         private IEnumerator SpawnWaves()
         {
-            _isSpawningWave = true; 
+            _isSpawningWave = true;
 
             while (_currentWave <= _waves)
             {
@@ -89,7 +90,16 @@ namespace Main.GameSystems
 
         private void SpawnEnemy()
         {
-            Vector3 spawnPosition = transform.position;
+            if (_spawnPoints.Count == 0)
+            {
+                Debug.LogWarning("Nenhum ponto de spawn foi adicionado.");
+                return;
+            }
+
+            // Escolhe um ponto de spawn aleatório da lista
+            Transform randomSpawnPoint = _spawnPoints[Random.Range(0, _spawnPoints.Count)];
+            Vector3 spawnPosition = randomSpawnPoint.position;
+
             GameObject enemy = Instantiate(_enemyPrefab, spawnPosition, Quaternion.identity);
 
             if (enemy != null)

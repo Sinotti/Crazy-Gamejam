@@ -33,7 +33,6 @@ public class GroundCheck : MonoBehaviour
                 emi.enabled = true;
             }
 
-            Debug.Log(raycastHit.collider.gameObject.layer);
             Debug.DrawLine(ray.origin, raycastHit.point);
         }
     }

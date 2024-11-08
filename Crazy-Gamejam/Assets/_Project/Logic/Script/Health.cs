@@ -10,10 +10,13 @@ public class Health : MonoBehaviour, IDamageable
 
     [Header("Events")]
     [Space(6)]
-    [SerializeField] private UnityEvent OnTakeDamage;
-    [SerializeField] private UnityEvent OnDie;
+    public UnityEvent OnTakeDamage;
+    public UnityEvent OnDie;
 
     private IDestroyable _destroyableUnit;
+
+    public int MaxHealth { get => _maxHealth; set => _maxHealth = value; }
+    public int CurrentHealth { get => _currentHealth; set => _currentHealth = value; }
 
     private void Start()
     {

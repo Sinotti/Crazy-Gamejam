@@ -16,6 +16,9 @@ namespace Main.Gameplay.Enemies
         [SerializeField] private float _height;
         [SerializeField] private LayerMask _detectionLayer;
 
+        [Header("Unit Parameters")]
+        [SerializeField] private int _unitMoneyValue = 10;
+
         [Header("References")]
         [Space(6)]
         [SerializeField] private NavMeshAgent _navMeshAgent;
@@ -34,15 +37,20 @@ namespace Main.Gameplay.Enemies
             _navMeshAgent.acceleration = _moveSpeed;
         }
 
-        private void Update() // Move to a Coroutine
+        private void Update() 
         {
-            AroundDetection(); // Adicione isso
+            AroundDetection();
             MoveTowardsCloserUnit();
         }
 
         public void Destroyed(Transform obs)
         {
             Destroy(gameObject);
+        }
+
+        private void OnDestroy()
+        {
+            if(BodyUnitSelectionUI.Instance != null) BodyUnitSelectionUI.Instance.AddMoney(_unitMoneyValue);
         }
 
         private void MoveTowardsCloserUnit()

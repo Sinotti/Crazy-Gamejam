@@ -53,7 +53,6 @@ namespace Main.GameSystems
             enemy.SetActive(false);
             _enemyPool.Enqueue(enemy);
 
-            // Remove a posição do inimigo retornado
             if (_spawnedEnemyPositions.Contains(enemy.transform.position))
             {
                 _spawnedEnemyPositions.Remove(enemy.transform.position);
@@ -62,34 +61,31 @@ namespace Main.GameSystems
 
         private Vector3 GetValidSpawnPosition(Vector3 spawnPosition)
         {
-            // Tenta encontrar uma posição válida em torno da posição de spawn
             Vector3 newPosition;
             int attempts = 0;
 
             do
             {
-                // Gera uma posição aleatória dentro de um certo raio
                 float randomX = Random.Range(-_minSpawnDistance, _minSpawnDistance);
                 float randomZ = Random.Range(-_minSpawnDistance, _minSpawnDistance);
                 newPosition = spawnPosition + new Vector3(randomX, 0, randomZ);
 
                 attempts++;
-            } while (IsPositionOccupied(newPosition) && attempts < 10); // Tenta até 10 vezes
+            } while (IsPositionOccupied(newPosition) && attempts < 10); 
 
-            return newPosition; // Retorna a posição válida ou a posição original se não conseguir encontrar
+            return newPosition; 
         }
 
         private bool IsPositionOccupied(Vector3 position)
         {
-            // Verifica se a nova posição está ocupada por outro inimigo
             foreach (Vector3 enemyPosition in _spawnedEnemyPositions)
             {
                 if (Vector3.Distance(position, enemyPosition) < _minSpawnDistance)
                 {
-                    return true; // Posição ocupada
+                    return true;
                 }
             }
-            return false; // Posição livre
+            return false;
         }
     }
 }

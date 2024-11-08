@@ -52,6 +52,8 @@ namespace Main.Gameplay.Player
 
         private void Update()
         {
+            if (_bodyUnits.Count <= 0) SceneController.Instance.RestartGame();
+
             ReadInputs();
             HandleRotation();
             Movement();
@@ -104,7 +106,7 @@ namespace Main.Gameplay.Player
 
         private void HandleRotation()
         {
-            if (_horizontalInput != 0)
+            if (_horizontalInput != 0 && _bodyUnits[0] != null)
                 _bodyUnits[0].Rotate(Vector3.up * _rotationSpeed * Time.deltaTime * _horizontalInput);
         }
 

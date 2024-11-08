@@ -22,6 +22,9 @@ public class BodyUnitSelectionUI : MonoBehaviour
 
     private List<BodyUnitStoreItem> currentSelection = new List<BodyUnitStoreItem>();
 
+    // Singleton instance
+    public static BodyUnitSelectionUI Instance { get; private set; }
+
     public List<BodyUnitStoreItem> AvailableBodyParts { get => _availableBodyParts; set => _availableBodyParts = value; }
     public int PlayerMoney { get => _playerMoney; set => _playerMoney = value; }
 
@@ -30,6 +33,18 @@ public class BodyUnitSelectionUI : MonoBehaviour
     {
         public BodyPartSO bodyPart;
         public int price;
+    }
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject); 
+        }
     }
 
     private void OnEnable()
@@ -62,12 +77,12 @@ public class BodyUnitSelectionUI : MonoBehaviour
 
     private void TrySelectBodyPart(BodyUnitStoreItem selectedItem)
     {
-        if (_playerMoney >= selectedItem.price) 
+        if (_playerMoney >= selectedItem.price)
         {
-            _playerMoney -= selectedItem.price; 
+            _playerMoney -= selectedItem.price;
             playerController.AddBodyUnit(selectedItem.bodyPart);
-            unitsUIManager.UpdateUI(); 
-            UpdateMoneyUI(); 
+            unitsUIManager.UpdateUI();
+            UpdateMoneyUI();
             Debug.Log($"Você comprou {selectedItem.bodyPart.name}!");
         }
         else
@@ -78,6 +93,12 @@ public class BodyUnitSelectionUI : MonoBehaviour
 
     public void UpdateMoneyUI()
     {
-        moneyText.text = _playerMoney.ToString();  
+        moneyText.text = _playerMoney.ToString();
+    }
+
+    public void AddMoney(int amount)
+    {
+        _playerMoney += amount;
+        UpdateMoneyUI();
     }
 }

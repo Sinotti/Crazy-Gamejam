@@ -27,17 +27,20 @@ public class Health : MonoBehaviour, IDamageable
     private void Awake()
     {
         changeVisual = GetComponent<ChangeVisual>();
-        mmfPlayer = changeVisual.selectVisual();
+        if(changeVisual!= null)
+        {
+            mmfPlayer = changeVisual.selectVisual();
 
+        }
     }
 
     private void Start()
     {
 
-        //if (mmfPlayer == null && )
-        //{
-        //    mmfPlayer = GetComponentInChildren<MMF_Player>();
-        //}
+        if (mmfPlayer == null)
+        {
+            mmfPlayer = GetComponentInChildren<MMF_Player>();
+        }
 
         _currentHealth = _maxHealth;
         _destroyableUnit = GetComponentInParent<IDestroyable>();

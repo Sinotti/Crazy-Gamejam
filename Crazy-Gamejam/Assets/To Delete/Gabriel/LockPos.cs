@@ -1,6 +1,5 @@
 using Main.Gameplay.Player;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class LockPos : MonoBehaviour
 {
@@ -8,21 +7,41 @@ public class LockPos : MonoBehaviour
     [SerializeField] private Transform _engate;
     [SerializeField] private PlayerController _playerController;
     [SerializeField] private Transform _carroEngate;
-    [SerializeField] private float _rotationLimit = 45f;
 
     private void Start()
     {
+        // Obtém a referência para o PlayerController na cena
         _playerController = FindFirstObjectByType<PlayerController>();
+
+        if (_playerController == null)
+        {
+            Debug.LogError("PlayerController não encontrado!");
+            return;
+        }
 
         Debug.Log(_playerController);
 
+        // Itera sobre os BodyUnits do PlayerController
         for (int i = 0; i < _playerController.BodyUnits.Count; i++)
         {
-            if(_playerController.BodyUnits[i] != null)
+            if (_playerController.BodyUnits[i] != null)
             {
-                if(gameObject == _playerController.BodyUnits[i].gameObject)
+                if (gameObject == _playerController.BodyUnits[i].gameObject)
                 {
-                    _engate = _playerController.BodyUnits[i - 1].Find("backHook").transform;
+                    // Se o índice for 0, o engate é o objeto com a tag "PlayerHead"
+                    if (i == 0)
+                    {
+                        _engate = GameObject.FindWithTag("PlayerHead")?.transform;
+                        if (_engate == null)
+                        {
+                            Debug.LogError("Objeto com a tag 'PlayerHead' não encontrado!");
+                            return;
+                        }
+                    }
+                    else
+                    {
+                        _engate = _playerController.BodyUnits[i - 1].Find("backHook").transform;
+                    }
                 }
             }
         }
@@ -30,8 +49,9 @@ public class LockPos : MonoBehaviour
 
     private void Update()
     {
+        if (_engate == null) return;
+
         transform.position = new Vector3(_engate.position.x, 0, _engate.position.z);
         transform.rotation = Quaternion.Lerp(transform.rotation, _engate.parent.rotation, Time.deltaTime * _rotationSpeed);
-        Mathf.Clamp(transform.rotation.y, 0, _rotationLimit);
     }
 }

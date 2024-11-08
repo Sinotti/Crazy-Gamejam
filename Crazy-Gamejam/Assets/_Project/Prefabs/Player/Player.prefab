@@ -101,7 +101,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &809069535343967684
 Transform:
   m_ObjectHideFlags: 0
@@ -164,23 +164,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e25327d3d88fa97449521df7e4125c83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _movementSpeed: 7
-  _rotationSpeed: 200
+  _movementSpeed: 6
+  _rotationSpeed: 250
   _UnitsDistance: 0.5
   _addUnitOffset: 0.5
   _beginSize: 1
-  _bodyUnits:
-  - {fileID: 809069535343967684}
+  _bodyUnits: []
   _bodyUnitsSO: []
   initialBodyPrefabs:
-  - {fileID: 1417221439994386282, guid: 6e0f370b2bab93943b1234e44b7f7fbe, type: 3}
-  - {fileID: 1860355735242069084, guid: 627b9d68f9aa5304095e5db8df577d7c, type: 3}
-  - {fileID: 1105531169783981204, guid: 11d7ee52ed98118499153e5fc051921a, type: 3}
-  - {fileID: 3637882382495656542, guid: 044fd310d470a454689b571aebefcb3d, type: 3}
+  - {fileID: 11400000, guid: cfab6e1ec5a01514d8e2d27a741f0ab6, type: 2}
+  - {fileID: 11400000, guid: 691202c868ef78148905f3d087338a81, type: 2}
+  - {fileID: 11400000, guid: 52f10b8c536de2e408f02527c6b287ce, type: 2}
   _bodyPartPrefabs:
-  - {fileID: 1417221439994386282, guid: 6e0f370b2bab93943b1234e44b7f7fbe, type: 3}
-  - {fileID: 1860355735242069084, guid: 627b9d68f9aa5304095e5db8df577d7c, type: 3}
-  - {fileID: 1105531169783981204, guid: 11d7ee52ed98118499153e5fc051921a, type: 3}
+  - {fileID: 11400000, guid: cfab6e1ec5a01514d8e2d27a741f0ab6, type: 2}
+  - {fileID: 11400000, guid: 691202c868ef78148905f3d087338a81, type: 2}
+  - {fileID: 11400000, guid: 52f10b8c536de2e408f02527c6b287ce, type: 2}
 --- !u!54 &6553092976303914761
 Rigidbody:
   m_ObjectHideFlags: 0

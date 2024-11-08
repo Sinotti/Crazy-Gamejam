@@ -30,11 +30,11 @@ public class UIManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.P))
         {
-            TogglePause();
+            ToggleStore();
         }
     }
 
-    private void TogglePause()
+    public void ToggleStore()
     {
         isPaused = !isPaused;
 
@@ -50,8 +50,8 @@ public class UIManager : MonoBehaviour
             Time.timeScale = 1f;
         }
     }
-
-    public void ToggleMenus()
+    
+    private void ToggleMenus()
     {
         _store.SetActive(!_store.activeSelf);
     }

@@ -375,7 +375,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &8388775421556938676
 RectTransform:
   m_ObjectHideFlags: 0
@@ -639,7 +639,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &7009764924857977828
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3650,6 +3650,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _store: {fileID: 978247717674819074}
+  _pausePanel: {fileID: 1182824656710749531}
+  _textPanel1: {fileID: 7256364653186800108}
+  _textPanel2: {fileID: 4625321006424307949}
+  _textMeshPro1: {fileID: 2152167460160658282}
+  _textMeshPro2: {fileID: 942346750916000623}
   OnPaused:
     m_PersistentCalls:
       m_Calls: []

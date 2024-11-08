@@ -32,7 +32,7 @@ namespace Main.Gameplay.Player
 
         [SerializeField] private List<BodyPartSO> _bodyPartPrefabs = new List<BodyPartSO>();
 
-        private Transform _head;
+        [SerializeField] private Transform _head;
 
         private float _delayPerUnit;
         private float _horizontalInput;
@@ -63,7 +63,7 @@ namespace Main.Gameplay.Player
             ReadInputs();
             HandleRotation();
 
-            _bodyUnits[0].Translate(_bodyUnits[0].forward * _movementSpeed * Time.smoothDeltaTime, Space.World);
+            _head.Translate(_head.forward * _movementSpeed * Time.smoothDeltaTime, Space.World);
 
             if (_jumpInput) AddBodyUnit(); // Replace to New Input System.
         }
@@ -114,7 +114,7 @@ namespace Main.Gameplay.Player
         private void HandleRotation()
         {
             if (_horizontalInput != 0 && _bodyUnits[0] != null)
-                _bodyUnits[0].Rotate(Vector3.up * _rotationSpeed * Time.deltaTime * _horizontalInput);
+                _head.Rotate(Vector3.up * _rotationSpeed * Time.deltaTime * _horizontalInput);
         }
 
         public void AddBodyUnit()

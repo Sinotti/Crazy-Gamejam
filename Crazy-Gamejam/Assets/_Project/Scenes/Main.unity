@@ -562,11 +562,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 21.4228, y: 0.20684983, z: 21.547146}
   m_Center: {x: -0.28285953, y: -0.7671199, z: -0.20624326}
---- !u!4 &519297843 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 809069535343967684, guid: 1bb33cad45112d74cb5e587aaaa08351, type: 3}
-  m_PrefabInstance: {fileID: 6506771691379894645}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &701769226
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1011,6 +1006,22 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 482553404}
   m_SourcePrefab: {fileID: 100100000, guid: 0478cb516f297cb44b25caf77b024c48, type: 3}
+--- !u!114 &1071351331 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 942346750916000623, guid: dc32c1cc374ea5344880b95c3c49cf8f, type: 3}
+  m_PrefabInstance: {fileID: 701769226}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &1209409493 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1182824656710749531, guid: dc32c1cc374ea5344880b95c3c49cf8f, type: 3}
+  m_PrefabInstance: {fileID: 701769226}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1451425003
 GameObject:
   m_ObjectHideFlags: 3
@@ -1332,18 +1343,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 955154286844012698, guid: 1bb33cad45112d74cb5e587aaaa08351, type: 3}
-      propertyPath: _head
-      value: 
-      objectReference: {fileID: 519297843}
-    - target: {fileID: 955154286844012698, guid: 1bb33cad45112d74cb5e587aaaa08351, type: 3}
-      propertyPath: _bodyUnits.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 955154286844012698, guid: 1bb33cad45112d74cb5e587aaaa08351, type: 3}
-      propertyPath: '_bodyUnits.Array.data[0]'
-      value: 
-      objectReference: {fileID: 519297843}
     - target: {fileID: 3096359146377048470, guid: 1bb33cad45112d74cb5e587aaaa08351, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1401,13 +1400,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2794915267695395116, guid: 3e2ea8c24cb788f4086ba7c92daebce7, type: 3}
+      propertyPath: _waveCompleteText
+      value: 
+      objectReference: {fileID: 1071351331}
+    - target: {fileID: 2794915267695395116, guid: 3e2ea8c24cb788f4086ba7c92daebce7, type: 3}
+      propertyPath: _waveCompletePanel
+      value: 
+      objectReference: {fileID: 1209409493}
     - target: {fileID: 3242496786644822535, guid: 3e2ea8c24cb788f4086ba7c92daebce7, type: 3}
       propertyPath: m_Name
       value: Enemy Spawner
       objectReference: {fileID: 0}
     - target: {fileID: 3242496786644822535, guid: 3e2ea8c24cb788f4086ba7c92daebce7, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8677511665814254945, guid: 3e2ea8c24cb788f4086ba7c92daebce7, type: 3}
       propertyPath: m_LocalPosition.x

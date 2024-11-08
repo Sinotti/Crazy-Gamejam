@@ -1,3 +1,6 @@
+using Main.Gameplay.Enemies;
+using MoreMountains.Feedbacks;
+using SensorToolkit;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -14,16 +17,34 @@ public class Health : MonoBehaviour, IDamageable
     public UnityEvent OnDie;
 
     private IDestroyable _destroyableUnit;
-
+    [SerializeField] private MMF_Player mmfPlayer;
+    [SerializeField] private BoxCollider boxCollider;
+    private EnemyMovement movement;
+    [SerializeField] private ChangeVisual changeVisual;
     public int MaxHealth { get => _maxHealth; set => _maxHealth = value; }
     public int CurrentHealth { get => _currentHealth; set => _currentHealth = value; }
 
+    private void Awake()
+    {
+        changeVisual = GetComponent<ChangeVisual>();
+        mmfPlayer = changeVisual.selectVisual();
+
+    }
+
     private void Start()
     {
-        _currentHealth = _maxHealth;
 
+        //if (mmfPlayer == null && )
+        //{
+        //    mmfPlayer = GetComponentInChildren<MMF_Player>();
+        //}
+
+        _currentHealth = _maxHealth;
         _destroyableUnit = GetComponentInParent<IDestroyable>();
+        movement = GetComponent<EnemyMovement>();
+        boxCollider = GetComponent<BoxCollider>();
     }
+
 
     public void TakeDamage(int amount)
     {
@@ -42,9 +63,11 @@ public class Health : MonoBehaviour, IDamageable
     private void Die()
     {
         OnDie?.Invoke();
+        boxCollider.enabled = false;
 
-        _destroyableUnit?.Destroyed(transform);
-
-        Destroy(gameObject);
+        //_destroyableUnit?.Destroyed(transform);
+        movement?.Stop();
+        mmfPlayer?.PlayFeedbacks();
+        Destroy(gameObject, 2f);
     }
 }

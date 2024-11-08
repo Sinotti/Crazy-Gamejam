@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7586796401681779209}
-  - component: {fileID: 1438221480049697805}
   m_Layer: 7
   m_Name: Visual
   m_TagString: Untagged
@@ -33,21 +32,6 @@ Transform:
   - {fileID: 8088124409304445504}
   m_Father: {fileID: 6954544090426373439}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1438221480049697805
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 357808740944885800}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5358263b5a88dea428cbf17a444d8858, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  models:
-  - {fileID: 679794571326903902}
-  - {fileID: 1301771261095253785}
 --- !u!1 &2589228743092012595
 GameObject:
   m_ObjectHideFlags: 0
@@ -62,6 +46,7 @@ GameObject:
   - component: {fileID: 4396309508526845465}
   - component: {fileID: 8745582522669339410}
   - component: {fileID: 5339818215193394652}
+  - component: {fileID: 4343068490091919523}
   m_Layer: 7
   m_Name: Enemy Base
   m_TagString: Enemy
@@ -124,6 +109,7 @@ MonoBehaviour:
   _detectionLayer:
     serializedVersion: 2
     m_Bits: 64
+  _unitMoneyValue: 10
   _navMeshAgent: {fileID: 5339818215193394652}
   _closerUnit: {fileID: 0}
   _unitsAround: []
@@ -197,6 +183,21 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &4343068490091919523
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2589228743092012595}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5358263b5a88dea428cbf17a444d8858, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  models:
+  - {fileID: 679794571326903902}
+  - {fileID: 1301771261095253785}
 --- !u!1 &4951481333125390159
 GameObject:
   m_ObjectHideFlags: 0

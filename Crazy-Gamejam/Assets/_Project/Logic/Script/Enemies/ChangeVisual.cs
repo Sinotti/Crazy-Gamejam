@@ -1,11 +1,27 @@
+using MoreMountains.Feedbacks;
+using MoreMountains.Tools;
 using UnityEngine;
 
 public class ChangeVisual : MonoBehaviour
 {
-    [SerializeField] private GameObject[] models;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [SerializeField] public GameObject[] models;
+    
+    public MMF_Player selectVisual()
     {
-        models[Random.Range(0, models.Length)].SetActive(false);
+        var index = Random.Range(0, models.Length);
+        var model = models[index];
+        MMF_Player player;
+        model.SetActive(false);
+
+        if(index == 0)
+        {
+            player = models[1].GetComponentInChildren<MMF_Player>();
+        }
+        else
+        {
+            player = models[0].GetComponentInChildren<MMF_Player>();
+        }
+
+        return player;
     }
 }

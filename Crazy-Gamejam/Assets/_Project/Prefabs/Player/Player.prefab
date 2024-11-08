@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5632717210319960853}
   m_Layer: 0
   m_Name: backHook
-  m_TagString: Untagged
+  m_TagString: PlayerHead
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -234,8 +234,7 @@ MonoBehaviour:
   _UnitsDistance: 9
   _addUnitOffset: 9
   _beginSize: 1
-  _bodyUnits:
-  - {fileID: 809069535343967684}
+  _bodyUnits: []
   _bodyUnitsSO: []
   initialBodyPrefabs:
   - {fileID: 11400000, guid: cfab6e1ec5a01514d8e2d27a741f0ab6, type: 2}
@@ -245,6 +244,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: cfab6e1ec5a01514d8e2d27a741f0ab6, type: 2}
   - {fileID: 11400000, guid: 691202c868ef78148905f3d087338a81, type: 2}
   - {fileID: 11400000, guid: 52f10b8c536de2e408f02527c6b287ce, type: 2}
+  _head: {fileID: 809069535343967684}
 --- !u!114 &5940945627599967821
 MonoBehaviour:
   m_ObjectHideFlags: 0

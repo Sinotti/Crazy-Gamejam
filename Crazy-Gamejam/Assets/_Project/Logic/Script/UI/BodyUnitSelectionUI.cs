@@ -77,6 +77,8 @@ public class BodyUnitSelectionUI : MonoBehaviour
 
     private void TrySelectBodyPart(BodyUnitStoreItem selectedItem)
     {
+        if (playerController.BodyUnitsSO.Count >= playerController.MaxBodyUnits) return;
+
         if (_playerMoney >= selectedItem.price)
         {
             _playerMoney -= selectedItem.price;

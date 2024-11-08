@@ -14,6 +14,7 @@ namespace Main.Gameplay.Player
 
         [Header("Body Parameters")]
         [Space(6)]
+        [SerializeField] private int _maxBodyUnits;
         [SerializeField] private float _UnitsDistance = 0.25f;
         [SerializeField] private float _addUnitOffset = 0.5f;
         [SerializeField] private int _beginSize;
@@ -44,6 +45,8 @@ namespace Main.Gameplay.Player
         private Vector3 _newPosition;
 
         public List<BodyPartSO> BodyUnitsSO => _bodyUnitsSO;
+
+        public int MaxBodyUnits { get => _maxBodyUnits; set => _maxBodyUnits = value; }
 
         private void Start()
         {

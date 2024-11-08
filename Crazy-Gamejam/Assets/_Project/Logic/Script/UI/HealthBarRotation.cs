@@ -11,9 +11,6 @@ public class HealthBarRotation : MonoBehaviour
 
     private void LateUpdate()
     {
-        if (_mainCamera != null)
-        {
-            transform.LookAt(transform.position + _mainCamera.transform.forward);
-        }
+        if (_mainCamera != null) transform.LookAt(transform.position + _mainCamera.transform.forward);
     }
 }

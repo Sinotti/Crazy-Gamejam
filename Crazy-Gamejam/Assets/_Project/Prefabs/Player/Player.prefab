@@ -198,6 +198,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _movementSpeed: 6
   _rotationSpeed: 250
+  _maxBodyUnits: 10
   _UnitsDistance: 0.5
   _addUnitOffset: 0.5
   _beginSize: 1
